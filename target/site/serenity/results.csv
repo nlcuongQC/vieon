@@ -1,2 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Login invalid story","John login with valid phone and password","ERROR","2021-05-19T00:37:16.885+07:00[Asia/Bangkok]","0.0","10.48"
+"Login valid story","John login with valid phone and password","SUCCESS","2021-05-19T03:39:26.878+07:00[Asia/Bangkok]","0.0","23.95"

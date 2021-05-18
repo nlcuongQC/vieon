@@ -3,7 +3,6 @@ package vn.vieon.features.login;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.junit.annotations.TestData;
@@ -19,6 +18,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityParameterizedRunner.class)
@@ -49,7 +49,6 @@ public class LoginValidStory {
         john.can(BrowseTheWeb.with(hisBrowser));
 
         givenThat(john).wasAbleTo(OpenPage.homePage());
-
         and(john).attemptsTo(OpenForm.loginForm());
     }
 
@@ -57,9 +56,9 @@ public class LoginValidStory {
     @WithTag("login")
     public void john_login_with_valid_phone_and_password() {
         when(john).attemptsTo(FillLoginForm.with(phone, password), Submit.loginForm());
-
-        then(john).should(seeThat(Alert.text(), is("Chào mừng bạn trở lại VieON")));
+        and(john).should(seeThat(Alert.text(), is("Chào mừng bạn trở lại VieON")));
         and(john).attemptsTo(TurnOff.alert());
-        and(john).should(seeThat(profilePanePhone, is(phone)).whenAttemptingTo(Hover.profile()));
+
+        then(john).should(seeThat(profilePanePhone, is(equalTo(phone))).whenAttemptingTo(Hover.profile()));
     }
 }
