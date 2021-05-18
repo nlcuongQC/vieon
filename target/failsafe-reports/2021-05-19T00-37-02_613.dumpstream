@@ -1,0 +1,4 @@
+# Created at 2021-05-19T00:37:03.020
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Projects\vieon\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+
